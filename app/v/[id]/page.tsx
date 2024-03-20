@@ -93,6 +93,7 @@ const jsonLd = {
         uploadDate: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
+        }
         const jsonLd2 = {
         '@context': 'https://schema.org',
         '@type': 'WebPage',
