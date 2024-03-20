@@ -93,7 +93,8 @@ const jsonLd = {
         uploadDate: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
-        'WebPage':{
+        const jsonLd2 = {
+        '@context': 'https://schema.org',
         '@type': 'WebPage',
         headline: `${file.title} - ${SITENAME}`,
         image: file.splash_img,
@@ -104,18 +105,21 @@ const jsonLd = {
             file.uploaded + ".000Z"
         ).toISOString(),
         }
-      }
-
     return (
         <div className="grid col-span-full gap-4 md:gap-4 md:mx-10">
-            <section>
+        <section>
         {/* Add JSON-LD to your page */}
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd2) }}
+        />
         {/* ... */}
-      </section>            <iframe
+        </section>
+            <iframe
                 className="w-full h-[30vh] md:h-[55vh] lg:h-[70vh]"
                 src={`https://${upstream}${file.protected_embed}`}
                 scrolling="no"
