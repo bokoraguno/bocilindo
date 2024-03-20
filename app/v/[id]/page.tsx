@@ -101,7 +101,7 @@ const jsonLd = {
         image: file.splash_img,
         thumbnailUrl: file.splash_img,
         description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp mama sma hijab abg colmek film tante hot`,
-        url: `https://bokeppijat.pages.dev/v/${file.filecode}`,
+        url: `https://bocilindo.pages.dev/v/${file.filecode}`,
         datePublished: new Date(
             file.uploaded + ".000Z"
         ).toISOString(),
