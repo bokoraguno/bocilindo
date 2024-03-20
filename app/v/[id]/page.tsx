@@ -40,11 +40,7 @@ export async function generateMetadata(
 
     const file = data.result[0];
     const title = `${file.title} - ${SITENAME}`;
-    const description = `${file.title} - Duration: ${humanDuration(
-        file.length
-    )} - Views: ${file.views} views - Size: ${humanSize(
-        file.size
-    )} - Uploaded On ${new Date(file.uploaded + ".000Z").toLocaleString()}`;
+    const description = `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp indonesia mama sma hijab abg colmek film tante twitter asia hot`;
     const image = file.splash_img;
     const previousOgImages = (await parent).openGraph?.images || [];
     const previousTwImages = (await parent).twitter?.images || [];
@@ -86,9 +82,29 @@ export default async function Video({ params }: PageProps) {
     }
 
     const file = data.result[0];
+const jsonLd = {
+        '@context': 'https://schema.org',
+        '@type': 'VideoObject',
+        name: `${file.title} - ${SITENAME}`,
+        thumbnailUrl: file.splash_img,
+        description: `${file.title} di ${SITENAME} Video Bokep Indo Jepang Barat Terbaru bocil jilbab smp indonesia mama sma hijab abg colmek film tante twitter asia hot`,
+        url: `https://bocilindo.pages.dev/v/${file.filecode}`,
+        embedUrl: `https://${upstream}/${file.filecode}`,
+        uploadDate: new Date(
+            file.uploaded + ".000Z"
+        ).toISOString(),
+      }
+
     return (
         <div className="grid col-span-full gap-4 md:gap-4 md:mx-10">
-            <iframe
+            <section>
+        {/* Add JSON-LD to your page */}
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+        />
+        {/* ... */}
+      </section>            <iframe
                 className="w-full h-[30vh] md:h-[55vh] lg:h-[70vh]"
                 src={`https://${upstream}${file.protected_embed}`}
                 scrolling="no"
